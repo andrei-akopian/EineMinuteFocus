@@ -1,4 +1,4 @@
-Inspired by [OneMinuteFocus](https://oneminutefocus.com/#) but better that thing is far less clean.
+[OneMinuteFocus](https://oneminutefocus.com/#) but better and more clean. (I know famous last words)
 
 # TODOs
 - [ ] Add darkmode

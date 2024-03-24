@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="wrapper">
+      <div id="timer" class="circle"></div>
+      <div id="pulsor" class="circle"></div>
+    </div>
+    <div id="description">
+      Welcome to <a href="https://github.com/andrei-akopian/EineMinuteFocus">EineMinuteFocus</a>, a clone of <a href="https://oneminutefocus.com/">OneMinuteFocus</a> but without JS.
+      There is a tiny time indicator under the black circle.<br>
+      Put mouse on the circle to start!
+    </div>
+    <style>
+      #wrapper {
+        position: absolute;
+        top: 50vh;
+        left: 50vw;
+        height: 30vh;
+        aspect-ratio: 1/1;
+        transform: translate(-50%,-50%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: none;
+      }
+      .circle {
+        width: 100%;
+        height: 100%;
+        border-radius: 100%;
+      }
+      #pulsor {
+        --period: 3s;
+        position: absolute;
+        background-color: black;
+      }
+      #wrapper:hover > #pulsor {
+        animation: var(--period) cubic-bezier(0.7,0,0.3,1) pulse infinite alternate;
+      }
+      @keyframes pulse {
+        0% {
+          width: 100%;
+          height: 100%;
+          background-color: dimgray;
+        }
+        100% {
+          width: 40%;
+          height: 40%;
+        }
+      }
+      #timer {
+          --timertime: 60s;
+          width:45%;
+          height:45%;
+          background: conic-gradient(lightgrey 10deg, white 10deg);
+      }
+      #wrapper:hover > #timer {
+          animation: clockloop var(--timertime) linear infinite;
+      }
+      @keyframes clockloop {
+          from {
+              transform: rotate(0deg);
+          }
+          to {
+              transform: rotate(360deg);
+          }
+      }
+      #description {
+        position: absolute;
+        bottom: 10px;
+        color: grey;
+        width: 20%;
+      }
+      a {
+          color: cadetblue;
+      }
+      #wrapper:hover ~ #description  {
+        opacity: 0;
+      }
+    </style>
+  </body>
+</html>
